@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include <chrono>
 
-const int WIDTH = 10240;
+const int WIDTH = 4096;
 
 __global__ void matrixMulKernel(float* d_M, float* d_N, float* d_P, int width) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;
@@ -65,6 +65,9 @@ int main() {
     while (true){
         end = std::chrono::high_resolution_clock::now();
         duration_ms = end - start;
+        if (int(duration_ms.count()) % 1000==0){
+            printf("Output something everything second\n");
+        }
         if (duration_ms.count()>600000){
             break;
         }
