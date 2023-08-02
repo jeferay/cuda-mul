@@ -66,7 +66,7 @@ int main() {
         end = std::chrono::high_resolution_clock::now();
         duration_ms = end - start;
         if (int(duration_ms.count()) % 1000==0){
-            printf("Output something everything second\n");
+            printf("Output something\n");
         }
         if (duration_ms.count()>600000){
             break;
