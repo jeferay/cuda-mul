@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include <chrono>
 
-const int WIDTH = 4096;
+const int WIDTH = 2048;
 
 __global__ void matrixMulKernel(float* d_M, float* d_N, float* d_P, int width) {
     int row = blockIdx.y * blockDim.y + threadIdx.y;
